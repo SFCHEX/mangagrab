@@ -52,7 +52,10 @@ def recent_chapter(rec):
 def grab_links(recent):
     raw_website=get(recent.replace('manga','chapter',2).replace('chapter','manga',1)).text
 
+
+
     website=BeautifulSoup(raw_website,features="lxml")
+
     chapter_tags=website.find_all('div',{'id':'centerDivVideo'})
     image_tags=chapter_tags[0].find_all('img')
     image_links=[]
