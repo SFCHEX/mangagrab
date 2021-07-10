@@ -29,7 +29,7 @@ def query(search):
     return rec
 
 def iterate(rec,x):
-    chapter_link=f'{rec}/chapter_{x}'
+    chapter_link=f'{rec}/chapter-{x}'
     return chapter_link 
 
 def recent_chapter(rec):
@@ -50,7 +50,6 @@ def recent_chapter(rec):
     return recent_link,chapter
 
 def grab_links(recent):
-      
     raw_website=get(recent.replace('manga','chapter',2).replace('chapter','manga',1)).text
 
     website=BeautifulSoup(raw_website,features="lxml")
@@ -136,4 +135,3 @@ if args.recent:
     rec=query(args.manga)
     recent_link,chapter=recent_chapter(rec)
     main(recent_link,chapter)
-
